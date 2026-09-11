@@ -5,13 +5,9 @@ import json
 
 
 async def handler(websocket):
-    while True:
-        try:
-            data = await websocket.recv()
-            data = json.loads(data)
-        except ConnectionClosedOK:
-            print("connection has closed. Awaiting new connection...")
-            break
+    async for data in websocket:
+        data = json.loads(data)
+        print(data)
         if (("message" in data) & (data["message"] == "hello")):
             await websocket.send(json.dumps({"message": "hello"}))
 
