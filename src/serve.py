@@ -1,10 +1,15 @@
 import asyncio
 from websockets.asyncio.server import serve
+from websockets.exceptions import ConnectionClosedOK
 
 
 async def handler(websocket):
     while True:
-        message = await websocket.recv()
+        try:
+            message = await websocket.recv()
+        except ConnectionClosedOK:
+            print("connection has closed. Awaiting new connection...")
+            break
         print(message)
 
 async def main():
