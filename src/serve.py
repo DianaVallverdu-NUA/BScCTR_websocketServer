@@ -1,16 +1,19 @@
 import asyncio
 from websockets.asyncio.server import serve
 from websockets.exceptions import ConnectionClosedOK
+import json
 
 
 async def handler(websocket):
     while True:
         try:
-            message = await websocket.recv()
+            data = await websocket.recv()
+            data = json.loads(data)
         except ConnectionClosedOK:
             print("connection has closed. Awaiting new connection...")
             break
-        print(message)
+        if (("message" in data) & (data["message"] == "hello")):
+            await websocket.send(json.dumps({"message": "hello"}))
 
 async def main():
     print("Starting websocket server...")
