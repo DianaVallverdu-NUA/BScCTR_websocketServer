@@ -6,11 +6,11 @@ Websockets are used to communicate efficiently through the web. Websockets can b
 1. Create a virtual environment with `python -m venv .venv`
 2. Activate the virtual environment with `source .venv/bin/activate`
 3. Install packages from `pyproject.toml` with `pip install -e .`
-4. Run `python ./src/CTR_websockets/serve.py` to start the websocket server
+4. Run `python ./src/serve.py` to start the websocket server
 
 ## Subsequent Runs
 1. Activate the virtual environment with `source .venv/bin/activate`
-2. Run `python ./src/CTR_websockets/serve.py` to start the websocket server
+2. Run `python ./src/serve.py` to start the websocket server
 
 ## Installing Further Packages
 
