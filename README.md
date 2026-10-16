@@ -7,7 +7,7 @@ Websockets are used to communicate efficiently through the web. Websockets can b
 2. Disable power_saving from raspberry pi, follow [this documentation](https://thedigitalpictureframe.com/stay-connected-enhancing-raspberry-pi-wi-fi-stability-by-turning-off-power-management/)
 
 ## First Installation (Linux)
-1. Create a virtual environment with `python -m venv .venv`
+1. Create a virtual environment with `python -m venv .venv --system-site-packages`
 2. Activate the virtual environment with `source .venv/bin/activate`
 3. Install packages from `pyproject.toml` with `pip install -e .`
 4. Run `python ./src/serve.py` to start the websocket server
